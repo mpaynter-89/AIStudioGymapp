@@ -60,9 +60,10 @@ export const initAudio = async (): Promise<void> => {
       console.log(`AudioContext resumed successfully. Current state: ${context.state}`);
     } catch (e) {
       console.error('Failed to resume AudioContext. Sounds will not play.', e);
-      // Re-throw the error so the caller can handle it. This prevents the
-      // app from continuing in a state where it expects audio to work.
-      throw e;
+      // Do not re-throw the error. Re-throwing was causing the app to crash
+      // when the user's browser blocked the AudioContext resume. The calling
+      // component will catch this and log it, but we should not crash the entire
+      // application if audio fails to initialize. The workout can proceed without sound.
     }
   } else {
     console.log(`AudioContext is already in state: '${context.state}'. No action needed.`);
