@@ -1,0 +1,5 @@
+{
+  "name": "ZenithFit Workout Planner",
+  "description": "A locally hosted web application for programming, planning, and tracking multi-week workout routines. It supports various exercise types including supersets, HIIT, cardio, and bodyweight exercises, with built-in timers and progress logging.",
+  "requestFramePermissions": []
+}
